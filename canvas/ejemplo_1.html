@@ -1,0 +1,37 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gráfica estadística</title>
+</head>
+<body>
+
+    <h2>Calificaciones de los estudiantes</h2>
+
+    <canvas id="grafica" width="400" height="250"
+    style="border:1px solid black;"></canvas>
+
+    <script>
+        const canvas = document.getElementById("grafica");
+        const ctx = canvas.getContext("2d");
+
+        let nombres = ["Ana", "Luis", "Carlos", "Sofía"];
+        let notas = [4, 3, 5, 4.5];
+
+        for (let i = 0; i < notas.length; i++) {
+            let x = 40 + i * 90;
+            let altura = notas[i] * 35;
+
+            ctx.fillStyle = "green";
+            ctx.fillRect(x, 200 - altura, 50, altura);
+
+            ctx.fillStyle = "black";
+            ctx.fillText(nombres[i], x, 220);
+            ctx.fillText(notas[i], x + 15, 190 - altura);
+        }
+    </script>
+
+</body>
+</html>
+```
